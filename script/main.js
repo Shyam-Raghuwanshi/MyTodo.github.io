@@ -4,12 +4,11 @@ let todoObj = JSON.parse(localStorage.getItem('todoObj'))
 const nullOrNot = document.getElementById('nullOrNot')
 let disable_Button = document.getElementById('btn')
 let showDeleted = document.querySelector('.showDeleted')
-if(todoObj){
-  if (Object.keys(todoObj).length == 0 ? nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">MY Todos :- No Todos</span>` : nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">MY Todos :- </span>`)
+if (!todoObj) {
+  nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft :- No Todos</span>`
 }
-else{
-  nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">MY Todos :- No Todos</span>`
-}
+else if (Object.keys(todoObj).length == 0 ? nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft :- No Todos</span>` : nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft Todos </span>`)
+
 
 
   for (const key in todoObj) {
