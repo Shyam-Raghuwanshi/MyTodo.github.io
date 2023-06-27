@@ -9,7 +9,6 @@ if (!todoDraftObj) {
 }
 else if (Object.keys(todoDraftObj).length == 0 ? nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft :- No Todos</span>` : nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft Todos </span>`)
 
-  console.log(todoDraftObj);
 for (const key in todoDraftObj) {
   let maketodo = `<div class="p-4 lg:w-1/3">
     <div
