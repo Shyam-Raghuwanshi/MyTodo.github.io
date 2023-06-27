@@ -3,12 +3,11 @@ const allTodoContainer = document.getElementById("allTodoContainer")
 const nullOrNot = document.querySelector('.nullOrNot')
 let disable_Button = document.getElementById('btn')
 let showDeleted = document.querySelector('.showDeleted')
-    if(deletedTodos){
-  if (Object.keys(todoObj).length == 0 ? nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">MY Todos :- No Todos</span>` : nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">MY Todos :- </span>`)
-    }
-else{
-  nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">MY Todos :- No Todos</span>`
+if (!deletedTodos) {
+  nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft :- No Todos</span>`
 }
+else if (Object.keys(deletedTodos).length == 0 ? nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft :- No Todos</span>` : nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft Todos </span>`)
+
 
   
 
