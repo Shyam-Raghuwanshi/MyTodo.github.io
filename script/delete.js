@@ -4,9 +4,9 @@ const nullOrNot = document.querySelector('.nullOrNot')
 let disable_Button = document.getElementById('btn')
 let showDeleted = document.querySelector('.showDeleted')
 if (!deletedTodos) {
-  nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft :- No Todos</span>`
+  nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Deleted :- No Todos</span>`
 }
-else if (Object.keys(deletedTodos).length == 0 ? nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft :- No Todos</span>` : nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Draft Todos </span>`)
+else if (Object.keys(deletedTodos).length == 0 ? nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Deleted :- No Todos</span>` : nullOrNot.innerHTML += `<span  class="text-[2rem]  font-bold">Deleted Todos </span>`)
 
 
   
@@ -49,7 +49,12 @@ disable_Button.style.display = 'none'
 let deleteTodo = document.getElementsByClassName('deleteTodo')
 Array.from(deleteTodo).forEach((element) => {
   element.addEventListener("click", (e) => {
-    showDeleted.innerHTML += `<div class="bg-indigo-900 text-center py-4 lg:px-4">
+   
+    let getTodosFromDeleteObj = JSON.parse(localStorage.getItem('deletedTodos'));
+    delete getTodosFromDeleteObj[e.target.name]
+    localStorage.setItem('deletedTodos', JSON.stringify(getTodosFromDeleteObj))
+    location.reload()
+     showDeleted.innerHTML += `<div class="bg-indigo-900 text-center py-4 lg:px-4">
   <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
   <span class="flex cursor-pointer rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">Success</span>
   <span class="font-semibold mr-2 text-left flex-auto">One item permanently deleted.</span>
@@ -59,10 +64,6 @@ Array.from(deleteTodo).forEach((element) => {
     setTimeout(() => {
       showDeleted.innerHTML = ''
     }, 5000);
-    let getTodosFromDeleteObj = JSON.parse(localStorage.getItem('deletedTodos'));
-    delete getTodosFromDeleteObj[e.target.name]
-    localStorage.setItem('deletedTodos', JSON.stringify(getTodosFromDeleteObj))
-    location.reload()
   })
 })
 
