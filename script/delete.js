@@ -14,7 +14,7 @@ else if (Object.keys(deletedTodos).length == 0 ? nullOrNot.innerHTML += `<span  
   // if (deleteTodo) {
   for (const key in deletedTodos) {
 
-    let maketodo = `<div class="md:px-4 lg:w-1/3">
+    let maketodo = `<div class="md:px-4 lg:w-1/3 pb-7">
   <div
     class="h-full bg-gray-800 bg-opacity-40 md:px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
     <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">Todo/Notes</h2>
