@@ -140,9 +140,10 @@ AddTodoDraftBtn.addEventListener('click', (e) => {
         GetUserTodos[generateId] = todoObj
         localStorage.setItem('todoDraft', JSON.stringify(GetUserTodos))
         location.reload()
+        showErrorFun('Successfully added Todo/Note')
       }
       else {
-        console.log("This title is already declared");
+       showErrorFun('This title is already declared')
       }
     }
     else {
