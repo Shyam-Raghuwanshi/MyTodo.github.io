@@ -103,6 +103,7 @@ AddTodoBtn.addEventListener('click', () => {
     }
     else {
       localStorage.setItem('todoObj', JSON.stringify(AlltodoObj))
+      location.reload()
     }
 
   }
