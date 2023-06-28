@@ -91,6 +91,7 @@ AddTodoBtn.addEventListener('click', () => {
         GetUserTodos[generateId] = todoObj
         localStorage.setItem('todoObj', JSON.stringify(GetUserTodos))
         location.reload()
+        showErrorFun('Successfully added Todo/Note')
       }
 
       else {
@@ -104,6 +105,7 @@ AddTodoBtn.addEventListener('click', () => {
     else {
       localStorage.setItem('todoObj', JSON.stringify(AlltodoObj))
       location.reload()
+      showErrorFun('Successfully added Todo/Note')
     }
 
   }
@@ -113,9 +115,13 @@ AddTodoBtn.addEventListener('click', () => {
 AddTodoDraftBtn.addEventListener('click', (e) => {
 
 
-  if (!validationFun) {
-    console.log('Invalid query')
-  }
+  let errorVal = JSON.parse(validationFun().message)
+      if (!errorVal.status) {
+        showErrorFun(errorVal.msg)
+        setTimeout(() => {
+          showError.innerHTML = ''
+        }, 4000);
+      }
 
 
   else {
@@ -149,6 +155,7 @@ AddTodoDraftBtn.addEventListener('click', (e) => {
     else {
       localStorage.setItem('todoDraft', JSON.stringify(AlltodoObj))
       location.reload()
+      showErrorFun('Successfully added Todo/Note')
     }
 
   }
